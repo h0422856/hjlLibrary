@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hjl.library.utils.toolbar.TitleBar
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn1_clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清除用户信息" />
+    <Button
+        android:id="@+id/btn1_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请求post" />
+
+    <Button
+        android:id="@+id/btn2_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="补全参数的请求post" />
+
+    <Button
+        android:id="@+id/btn3_get"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="get返回list" />
+
+    <Button
+        android:id="@+id/btn4_get"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="补全参数的get返回对象" />
+
+    <Button
+        android:id="@+id/btn5_get"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="get" />
+
+    <Button
+        android:id="@+id/btn6_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="补全参数的delete" />
+
+    <Button
+        android:id="@+id/btn7_patch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="补全参数的patch" />
+</LinearLayout>

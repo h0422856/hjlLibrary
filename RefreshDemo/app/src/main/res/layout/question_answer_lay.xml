@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/question_answer_lay_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/champion_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="85dp"
+                android:layout_height="85dp">
+
+
+                <xb.com.refreshdemo.roundedimage.RoundedImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/avatar_user_male"
+                    app:corner_radius="5dp" />
+
+                <com.flyco.roundview.RoundLinearLayout
+                    android:id="@+id/champion_label_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    app:rv_backgroundColor="@color/main_champion_tag_text_color"
+                    app:rv_cornerRadius_BR="5dp">
+
+                    <TextView
+                        android:id="@+id/champion_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="1dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="1dp"
+                        android:text="学霸"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </com.flyco.roundview.RoundLinearLayout>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/champion_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="小明律师"
+                        android:textColor="@color/about_black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <com.flyco.roundview.RoundLinearLayout
+                        android:id="@+id/age_champion_bg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center_vertical"
+                        app:rv_backgroundColor="@color/sex_man_user_bg"
+                        app:rv_cornerRadius="2dp">
+
+                        <ImageView
+                            android:id="@+id/age_champion_sex_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="3dp"
+                            android:src="@drawable/sex_men_img" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="10sp"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/age_champion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:paddingRight="3dp"
+                            android:text="12"
+                            android:textColor="@color/white"
+                            android:textSize="11sp" />
+                    </com.flyco.roundview.RoundLinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/champion_parent_tag_bg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="2dp"
+                        android:background="@color/champion_parent_man_color"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/champion_parent_tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:text="张大大父亲"
+                            android:textColor="@color/xb_main_color"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <xb.com.refreshdemo.flowlayoutview.AutoFlowLayout
+                    android:id="@+id/player_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp" />
+
+                <LinearLayout
+                    android:id="@+id/champion_school_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/school_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="北京大学"
+                        android:textColor="@color/text_gray_1"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/is_check_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:text="|"
+                        android:textColor="@color/text_gray_1"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/is_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="家长已认证"
+                        android:textColor="@color/text_gray_1"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/champion_parent_school_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+
+                    <TextView
+                        android:id="@+id/champion_study_school"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="孩子就读：北京大学 生物科学院"
+                        android:textColor="@color/text_gray_1"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="擅长: "
+                        android:textColor="@color/text_gray_1"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/elite_lawyer_introduction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="@color/text_black_1"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#ffffff</color>
+    <color name="main_champion_tag_text_color">#c9af71</color>
+    <color name="about_black">#434a4c</color>
+    <color name="sex_man_user_bg">#1fbb67</color>
+    <color name="sex_woman_user_bg">#edb2ae</color>
+    <color name="champion_parent_man_color">#e4f7ed</color>
+    <color name="xb_main_color">#1fbb67</color>
+    <color name="text_gray_1">#8c8f96</color>
+    <color name="text_black_1">#16191c</color>
+    <color name="main_champion_tag_bg_color">#f8f5ee</color>
+    <color name="center_blue">#35796e</color>
+
+    <color name="user_personal_tag_bg">#40ffffff</color>
+</resources>

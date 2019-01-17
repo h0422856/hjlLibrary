@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ConvenientBanner">
+        <attr name="canLoop" format="boolean" />
+        <attr name="pointInPager" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RippleView">
+        <attr name="rv_alpha" format="integer" />
+        <attr name="rv_framerate" format="integer" />
+        <attr name="rv_rippleDuration" format="integer" />
+        <attr name="rv_zoomDuration" format="integer" />
+        <attr name="rv_color" format="color" />
+        <attr name="rv_centered" format="boolean" />
+        <attr name="rv_type" format="enum">
+            <enum name="simpleRipple" value="0" />
+            <enum name="doubleRipple" value="1" />
+            <enum name="rectangle" value="2" />
+        </attr>
+        <attr name="rv_ripplePadding" format="dimension" />
+        <attr name="rv_zoom" format="boolean" />
+        <attr name="rv_zoomScale" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="corner_radius" format="dimension" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="mutate_background" format="boolean" />
+        <attr name="isoval" format="boolean" />
+        <attr name="android:scaleType" />
+    </declare-styleable>
+
+    <!-- slideswith -->
+    <declare-styleable name="slideswitch">
+        <attr name="themeColor" format="color" />
+        <attr name="isOpen" format="boolean" />
+        <attr name="shape">
+            <enum name="rect" value="1" />
+            <enum name="circle" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!-- FlowLayout -->
+    <declare-styleable name="FlowLayout">
+        <attr name="android:gravity" />
+    </declare-styleable>
+    <declare-styleable name="FlowLayout_Layout">
+        <attr name="android:layout_gravity" />
+    </declare-styleable>
+
+    <declare-styleable name="SelectableRoundedImageView">
+        <attr name="sriv_left_top_corner_radius" format="dimension" />
+        <attr name="sriv_right_top_corner_radius" format="dimension" />
+        <attr name="sriv_left_bottom_corner_radius" format="dimension" />
+        <attr name="sriv_right_bottom_corner_radius" format="dimension" />
+        <attr name="sriv_border_width" format="dimension" />
+        <attr name="sriv_border_color" format="color" />
+        <attr name="sriv_oval" format="boolean" />
+        <attr name="android:scaleType" />
+    </declare-styleable>
+
+    <declare-styleable name="AutoFlowLayout">
+        <attr name="singleLine" format="boolean"/>
+        <attr name="maxLines" format="integer"/>
+        <attr name="multiChecked" format="boolean"/>
+        <attr name="horizontalSpace" format="dimension"/>
+        <attr name="verticalSpace" format="dimension"/>
+        <attr name="columnNumbers" format="integer"/>
+        <attr name="rowNumbers" format="integer"/>
+        <attr name="cutLineWidth" format="dimension"/>
+        <attr name="cutLineColor" format="color"/>
+        <attr name="cutLine" format="boolean"/>
+        <attr name="lineCenter" format="boolean"/>
+    </declare-styleable>
+</resources>
