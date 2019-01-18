@@ -29,12 +29,15 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 
+import com.blankj.utilcode.util.ImageUtils;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.TreeMap;
 import java.util.UUID;
 
 import xb.com.refreshdemo.roundedimage.bean.ImgBean;

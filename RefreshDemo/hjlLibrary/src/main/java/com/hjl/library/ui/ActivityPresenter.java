@@ -2,9 +2,12 @@ package com.hjl.library.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.gyf.barlibrary.ImmersionBar;
@@ -12,6 +15,7 @@ import com.hjl.library.R;
 import com.hjl.library.net.LogicHelper;
 import com.hjl.library.net.logic.EventLogic;
 import com.hjl.library.net.logic.LogicCallback;
+import com.hjl.library.ui.base.Presenter;
 import com.hjl.library.utils.dialog.ProgressDialog;
 import com.hjl.library.utils.slideback.SlideBackAcitivty;
 import com.hjl.library.utils.toolbar.TitleBar;
@@ -28,7 +32,7 @@ import org.greenrobot.eventbus.ThreadMode;
  * @copyright Copyright 2010 RD information technology Co.,ltd.. All Rights Reserved.
  */
 
-public class ActivityPresenter extends SlideBackAcitivty implements LogicCallback, View.OnClickListener {
+public abstract class ActivityPresenter extends SlideBackAcitivty implements LogicCallback, View.OnClickListener {
     public boolean isDestroyed;
     public LogicHelper logicHelper = new LogicHelper();
     public EventBus eventBus;
@@ -131,6 +135,26 @@ public class ActivityPresenter extends SlideBackAcitivty implements LogicCallbac
         ImmersionBar.setTitleBar(ActivityPresenter.this, titleBar.action_bar_rl);
     }
 
+    protected void initTitleBar(int titleBarId, int leftBtn, String rightBtn, int title) {
+        titleBar = (TitleBar) findViewById(titleBarId);
+        titleBar.setTitle(title);
+        if (leftBtn == 0) {
+            titleBar.left.setVisibility(View.INVISIBLE);
+        } else {
+            titleBar.left.setImageResource(leftBtn);
+            titleBar.left.setVisibility(View.VISIBLE);
+            titleBar.left.setOnClickListener(this);
+        }
+        if (TextUtils.isEmpty(rightBtn)) {
+            titleBar.right.setVisibility(View.INVISIBLE);
+        } else {
+            titleBar.rightTitle.setText(rightBtn);
+            titleBar.rightTitle.setVisibility(View.VISIBLE);
+            titleBar.rightTitle.setOnClickListener(this);
+        }
+        ImmersionBar.setTitleBar(ActivityPresenter.this, titleBar.action_bar_rl);
+    }
+
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.tb_left) {
@@ -159,12 +183,6 @@ public class ActivityPresenter extends SlideBackAcitivty implements LogicCallbac
         return loadingDialog;
     }
 
-    protected void showInteractingProgressDialog() {
-        ProgressDialog dialog = getInteractingDialog();
-        if (dialog != null) {
-            dialog.show();
-        }
-    }
 
     protected void showProgressDialog(final String message) {
         runOnUiThread(new Runnable() {

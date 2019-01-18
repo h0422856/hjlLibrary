@@ -6,18 +6,24 @@ import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.http.DELETE;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
+import retrofit2.http.PartMap;
 import retrofit2.http.Path;
 import retrofit2.http.QueryMap;
+import retrofit2.http.Url;
 import xb.com.refreshdemo.bean.User;
 import xb.com.refreshdemo.bean.banner.BannerInfo;
 import xb.com.refreshdemo.bean.message.MessageBase;
 import xb.com.refreshdemo.bean.tag.ChampionBaseTag;
+import xb.com.refreshdemo.roundedimage.bean.FileData;
 
 /**
  * [description about this class]
@@ -52,4 +58,12 @@ public interface NetApi {
 
     @PATCH("user/updateAuth/{uId}")
     Observable<InfoResult<User>> patchUpdateAuth(@Path("uId") Object userId, @QueryMap Map<String, Object> params);
+
+    @Multipart
+    @POST
+    Observable<InfoResult<List<FileData>>> uploadImgs(@Url String url, @PartMap Map<String, RequestBody> params);
+
+    @FormUrlEncoded
+    @POST("user/addPersonalShow")
+    Observable<InfoResult<String>> addPersonalShow(@FieldMap Map<String, Object> params);
 }

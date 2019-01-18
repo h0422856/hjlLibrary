@@ -4,13 +4,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hjl.library.ui.BaseActivity;
+import com.hjl.library.ui.base.Presenter;
 
+import butterknife.BindView;
+import butterknife.OnClick;
 import xb.com.refreshdemo.R;
 import xb.com.refreshdemo.bean.User;
 import xb.com.refreshdemo.net.config.AccountManager;
 import xb.com.refreshdemo.net.logic.ModuleALogic;
+import xb.com.refreshdemo.refresh.RefreshOneActivity;
+import xb.com.refreshdemo.refresh.RefreshTwoActivity;
+import xb.com.refreshdemo.selectImg.AddStyleActivity;
 
 /**
  * [description about this class]
@@ -22,10 +29,29 @@ import xb.com.refreshdemo.net.logic.ModuleALogic;
 
 public class PostRequestActivity extends BaseActivity {
 
-    private TextView text1;
-    private Button btn1_clear, btn1_post, btn2_post,
-            btn3_get, btn4_get, btn5_get, btn6_delete, btn7_patch;
     private ModuleALogic moduleALogic;
+    @BindView(R.id.text1)
+    TextView text1;
+    @BindView(R.id.btn1_clear)
+    Button btn1_clear;
+    @BindView(R.id.btn1_post)
+    Button btn1_post;
+    @BindView(R.id.btn2_post)
+    Button btn2_post;
+    @BindView(R.id.btn3_get)
+    Button btn3_get;
+    @BindView(R.id.btn4_get)
+    Button btn4_get;
+    @BindView(R.id.btn5_get)
+    Button btn5_get;
+    @BindView(R.id.btn6_delete)
+    Button btn6_delete;
+    @BindView(R.id.btn7_patch)
+    Button btn7_patch;
+    @BindView(R.id.btn8_file_upload)
+    Button btn8_file_upload;
+
+    User user;
 
     @Override
     protected void onCreate() {
@@ -35,78 +61,75 @@ public class PostRequestActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        text1 = findViewById(R.id.text1);
-        btn1_clear = findViewById(R.id.btn1_clear);
-        btn1_post = findViewById(R.id.btn1_post);
-        btn2_post = findViewById(R.id.btn2_post);
-        btn3_get = findViewById(R.id.btn3_get);
-        btn4_get = findViewById(R.id.btn4_get);
-        btn5_get = findViewById(R.id.btn5_get);
-        btn6_delete = findViewById(R.id.btn6_delete);
-        btn7_patch = findViewById(R.id.btn7_patch);
         moduleALogic = findLogic(new ModuleALogic(this));
+        user = AccountManager.getInstance().getCurrentUser();
     }
 
-    @Override
-    public void initListener() {
-        btn1_clear.setOnClickListener(this);
-        btn1_post.setOnClickListener(this);
-        btn2_post.setOnClickListener(this);
-        btn3_get.setOnClickListener(this);
-        btn4_get.setOnClickListener(this);
-        btn5_get.setOnClickListener(this);
-        btn6_delete.setOnClickListener(this);
-        btn7_patch.setOnClickListener(this);
-    }
 
     @Override
     public void initData() {
         initTitleBar(R.id.bar, 0, 0, R.string.app_name);
     }
 
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
+    @OnClick(R.id.btn1_clear)
+    public void btn1_clear(View view) {
+        if (AccountManager.getInstance().getCurrentUser() != null) {
+            AccountManager.getInstance().setCurrentUser(null);
+            ToastUtils.showShort("清除成功");
+        } else {
+            ToastUtils.showShort("清除失败");
+        }
+    }
+
+    @OnClick(R.id.btn1_post)
+    public void btn1_post(View view) {
+        showProgressDialog();
+        moduleALogic.categoryList("18550935712", "123456");
+    }
+
+
+    @OnClick(R.id.btn2_post)
+    public void btn2_post(View view) {
         User user = AccountManager.getInstance().getCurrentUser();
-        switch (v.getId()) {
-            case R.id.btn1_clear:
-                if (AccountManager.getInstance().getCurrentUser() != null) {
-                    AccountManager.getInstance().setCurrentUser(null);
-                    ToastUtils.showShort("清除成功");
-                } else {
-                    ToastUtils.showShort("清除失败");
-                }
-                break;
-            case R.id.btn1_post:
-                showProgressDialog();
-                moduleALogic.categoryList("18550935712", "123456");
-                break;
-            case R.id.btn2_post:
-                showProgressDialog();
-                moduleALogic.updatePassWord(
-                        user.getPhoneNumber(), user.getPassword(), "111111", user.getuId());
-                break;
-//            case R.id.btn3_get:
-//                showProgressDialog();
+        showProgressDialog();
+        moduleALogic.updatePassWord(
+                user.getPhoneNumber(), user.getPassword(), "111111", user.getuId());
+    }
+
+    @OnClick(R.id.btn3_get)
+    public void btn3_get(View view) {
+//        showProgressDialog();
 //                moduleALogic.updatePassWord(
 //                        user.getPhoneNumber(), user.getPassword(), "111111", user.getuId());
-//                break;
-            case R.id.btn4_get:
-                showProgressDialog();
-                moduleALogic.getCommonMessage(user.getuId());
-            case R.id.btn5_get:
-                showProgressDialog();
-                moduleALogic.bannerList(user.getuId());
-                break;
-            case R.id.btn6_delete:
-                showProgressDialog();
-                moduleALogic.deleteUnreadNum(user.getuId());
-                break;
-            case R.id.btn7_patch:
-                showProgressDialog();
-                moduleALogic.patchUpdateAuth(user.getuId());
-                break;
-        }
+    }
+
+    @OnClick(R.id.btn4_get)
+    public void btn4_get(View view) {
+        showProgressDialog();
+        moduleALogic.getCommonMessage(user.getuId());
+    }
+
+    @OnClick(R.id.btn5_get)
+    public void btn5_get(View view) {
+        showProgressDialog();
+        moduleALogic.bannerList(user.getuId());
+    }
+
+    @OnClick(R.id.btn6_delete)
+    public void btn6_delete(View view) {
+        showProgressDialog();
+        moduleALogic.deleteUnreadNum(user.getuId());
+    }
+
+    @OnClick(R.id.btn7_patch)
+    public void btn7_patch(View view) {
+        showProgressDialog();
+        moduleALogic.patchUpdateAuth(user.getuId());
+    }
+
+    @OnClick(R.id.btn8_file_upload)
+    public void btn8_file_upload(View view) {
+        ActivityUtils.startActivity(AddStyleActivity.class);
     }
 
     @Override
@@ -161,4 +184,5 @@ public class PostRequestActivity extends BaseActivity {
             text1.setText("get_common_message_id===>Failure" + errmsg);
         }
     }
+
 }

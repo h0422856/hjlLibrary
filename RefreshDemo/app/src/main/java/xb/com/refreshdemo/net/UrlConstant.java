@@ -11,7 +11,7 @@ public class UrlConstant {
 
 
 
-    public final static String BASE_URL = "http:/";
+    public final static String BASE_URL = "http:///";
 
 }
 

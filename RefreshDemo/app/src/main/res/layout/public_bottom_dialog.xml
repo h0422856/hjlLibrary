@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <ListView
+        android:id="@+id/list_funitem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:divider="#d2dbe4"
+        android:dividerHeight="0.1dp"
+        android:drawSelectorOnTop="false"
+        android:listSelector="@android:color/transparent" />
+
+    <!--android:background="@drawable/dialog_style_cancle"
+            android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+             android:textColor="@color/public_bottom_menu"
+    -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#d2dbe4" />
+
+    <TextView
+        android:id="@+id/btn_cansel"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="#545a70"
+        android:textSize="20sp" />
+</LinearLayout>

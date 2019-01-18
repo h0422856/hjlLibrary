@@ -106,11 +106,6 @@ public class RefreshTwoActivity extends BaseActivity{
     }
 
     @Override
-    public void initListener() {
-
-    }
-
-    @Override
     public void initData() {
 
     }

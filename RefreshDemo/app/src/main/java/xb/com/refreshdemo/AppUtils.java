@@ -40,7 +40,7 @@ import xb.com.refreshdemo.flowlayoutview.AutoFlowLayout;
 
 public class AppUtils {
 
-    public static void showRadiusImage(Activity activity, ImageView imageView, String url, int gender, int verifiedStatus) {
+    public static void showImage(Context context, ImageView imageView, String url, int gender, int verifiedStatus) {
         int drawableResource = R.drawable.avatar_user_male;
         if (gender == 1) {
             if (verifiedStatus == 2) {
@@ -57,7 +57,16 @@ public class AppUtils {
         } else {
             drawableResource = R.drawable.avatar_user_male;
         }
-        GlideApp.with(activity).load(url).
+        GlideApp.with(context).load(url).
+                placeholder(drawableResource).
+                skipMemoryCache(false).
+                dontAnimate().
+                into(imageView);
+    }
+
+    public static void showImage(Context context, ImageView imageView, String url) {
+        int drawableResource = R.drawable.pic_loading;
+        GlideApp.with(context).load(url).
                 placeholder(drawableResource).
                 skipMemoryCache(false).
                 dontAnimate().

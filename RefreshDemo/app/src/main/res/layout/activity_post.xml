@@ -13,50 +13,68 @@
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/btn1_clear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="btn1_clear"
         android:text="清除用户信息" />
+
     <Button
         android:id="@+id/btn1_post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="btn1_post"
         android:text="请求post" />
 
     <Button
         android:id="@+id/btn2_post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="btn2_post"
         android:text="补全参数的请求post" />
 
     <Button
         android:id="@+id/btn3_get"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="btn3_get"
         android:text="get返回list" />
 
     <Button
         android:id="@+id/btn4_get"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="btn4_get"
         android:text="补全参数的get返回对象" />
 
     <Button
         android:id="@+id/btn5_get"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="btn5_get"
         android:text="get" />
 
     <Button
         android:id="@+id/btn6_delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="btn6_delete"
         android:text="补全参数的delete" />
 
     <Button
         android:id="@+id/btn7_patch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="btn7_patch"
         android:text="补全参数的patch" />
+
+
+    <Button
+        android:id="@+id/btn8_file_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btn8_file_upload"
+        android:text="文件上传" />
 </LinearLayout>

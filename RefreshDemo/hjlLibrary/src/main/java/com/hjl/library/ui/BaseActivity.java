@@ -6,8 +6,11 @@ import android.provider.ContactsContract;
 
 import com.hjl.library.net.retrofit.bean.InfoResult;
 import com.hjl.library.ui.base.NetworkError;
+import com.hjl.library.ui.base.Presenter;
 import com.hjl.library.ui.base.PublicInit;
 import com.hjl.library.utils.slideback.SlideBackAcitivty;
+
+import butterknife.ButterKnife;
 
 /**
  * [description about this class]
@@ -23,8 +26,8 @@ public abstract class BaseActivity extends ActivityPresenter {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         onCreate();
+        ButterKnife.bind(this);
         initView();
-        initListener();
         initData();
     }
 
@@ -65,7 +68,6 @@ public abstract class BaseActivity extends ActivityPresenter {
 
     public abstract void initView();
 
-    public abstract void initListener();
 
     public abstract void initData();
 

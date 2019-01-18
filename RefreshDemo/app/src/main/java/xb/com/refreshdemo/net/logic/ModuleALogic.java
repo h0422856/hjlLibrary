@@ -1,8 +1,11 @@
 package xb.com.refreshdemo.net.logic;
 
+import com.hjl.library.net.logic.ApiPost;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.RequestBody;
 import xb.com.refreshdemo.R;
 import xb.com.refreshdemo.net.api.NetApi;
 import xb.com.refreshdemo.net.base.DemoBaseLogic;
@@ -78,6 +81,7 @@ public class ModuleALogic extends DemoBaseLogic {
         map.put("gender", "2");
         sendRequest(api.patchUpdateAuth(uId, map), R.id.patch_updateauth_id);
     }
+
 
 
 }

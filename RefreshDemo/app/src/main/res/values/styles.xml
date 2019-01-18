@@ -26,4 +26,8 @@
             @style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle
         </item>
     </style>
+
+    <style name="transparentFrameWindowStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/bg_window</item>
+    </style>
 </resources>

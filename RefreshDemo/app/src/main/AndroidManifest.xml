@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:activityandroid="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     package="xb.com.refreshdemo">
 
@@ -31,6 +32,21 @@
         <activity
             android:name=".net.PostRequestActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".selectImg.AddStyleActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="xb.com.refreshdemo.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

@@ -3,4 +3,7 @@
     <string name="champion_first">学神</string>
     <string name="champion_second">学霸</string>
     <string name="champion_third">学圣</string>
+
+    <string name="add_user_style_submit">发布</string>
+    <string name="add_user_style_title">发布风采</string>
 </resources>

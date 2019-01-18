@@ -25,14 +25,19 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hjl.library.R;
 import com.hjl.library.net.LogicHelper;
 import com.hjl.library.net.logic.Callback;
 import com.hjl.library.net.logic.EventLogic;
 import com.hjl.library.net.logic.LogicCallback;
+import com.hjl.library.utils.dialog.ProgressDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 /**
@@ -45,6 +50,8 @@ import org.greenrobot.eventbus.ThreadMode;
 public abstract class FragmentPresenter extends Fragment implements LogicCallback {
     protected EventBus eventBus;
     Callback callback;
+    private ProgressDialog loadingDialog;
+    private Unbinder unbinder;
 
     public <T> void setCallback(Callback<T> callback) {
         this.callback = callback;
@@ -68,6 +75,8 @@ public abstract class FragmentPresenter extends Fragment implements LogicCallbac
             savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(getLayoutId(), container, false);
+        //返回一个Unbinder值（进行解绑），注意这里的this不能使用getActivity()
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -77,26 +86,64 @@ public abstract class FragmentPresenter extends Fragment implements LogicCallbac
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         isDestroyed = false;
-        onCreate();
-    }
-
-    protected void onCreate() {
     }
 
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (loadingDialog != null) {
+            if (loadingDialog.isShowing()) {
+                loadingDialog.dismiss();
+            }
+        }
+        loadingDialog = null;
+        isDestroyed = true;
+        logicHelper.unregisterAll();
+    }
+
+    /**
+     * onDestroyView中进行解绑操作
+     */
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    protected ProgressDialog getInteractingDialog() {
+        if (loadingDialog == null) {
+            loadingDialog = new ProgressDialog(getContext(), null, true);
+            loadingDialog.setCanceledOnTouchOutside(false);
+        }
+        return loadingDialog;
+    }
 
 
+    protected void showProgressDialog(final String message) {
+        ProgressDialog dialog = getInteractingDialog();
+        if (dialog != null) {
+            dialog.showMessage(message);
+            dialog.show();
+        }
+    }
 
+    protected void showProgressDialog() {
+        ProgressDialog dialog = getInteractingDialog();
+        if (dialog != null) {
+            dialog.showMessage(getResources().getString(R.string.loading_progress_text));
+            dialog.show();
+        }
+    }
 
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//
-//        isDestroyed = true;
-//        logicHelper.unregisterAll();
-//        taskHelper.unregisterAll();
-//    }
-
+    /**
+     * Dismiss interacting progress dialog
+     */
+    public void dismissProgressDialog() {
+        if (loadingDialog != null) {
+            loadingDialog.dismiss();
+        }
+    }
 
     LogicHelper logicHelper = new LogicHelper();
     boolean isDestroyed;

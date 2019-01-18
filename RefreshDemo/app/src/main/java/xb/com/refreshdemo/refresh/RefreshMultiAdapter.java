@@ -75,9 +75,8 @@ public class RefreshMultiAdapter extends BaseMultiItemQuickAdapter<MultiInfo, Ba
         switch (item.getItemType()) {
             case MultiInfo.TYPE_PESALE:
                 avatar = helper.getView(R.id.avatar);
-                AppUtils.showRadiusImage(activity, avatar, item.getRefreshBean().getAvatarThubmnail(),
+                AppUtils.showImage(activity, avatar, item.getRefreshBean().getAvatarThubmnail(),
                         item.getRefreshBean().getGender(), item.getRefreshBean().getVerifiedStatus());
-//                Glide.with(activity).load(item.getRefreshBean().getAvatarThubmnail()).into(avatar);
                 helper.setText(R.id.champion_name, item.getRefreshBean().getRealName());
                 if (item.getRefreshBean().getVerifiedType() == 1) {//学神
                     helper.setText(R.id.champion_label, mContext.getResources().getString(R.string.champion_first));
@@ -149,9 +148,8 @@ public class RefreshMultiAdapter extends BaseMultiItemQuickAdapter<MultiInfo, Ba
                 break;
             case MultiInfo.TYPE_SERIES:
                 helper.setText(R.id.nickname, item.getRefreshBean().getRealName());
-                AppUtils.showRadiusImage(activity, (ImageView) helper.getView(R.id.image), item.getRefreshBean().getAvatarThubmnail(),
+                AppUtils.showImage(activity, (ImageView) helper.getView(R.id.image), item.getRefreshBean().getAvatarThubmnail(),
                         item.getRefreshBean().getGender(), item.getRefreshBean().getVerifiedStatus());
-//                Glide.with(mContext).load(item.getRefreshBean().getAvatarThubmnail()).into((ImageView) helper.getView(R.id.image));
                 break;
         }
     }

@@ -1,5 +1,7 @@
 package xb.com.refreshdemo.net.config;
 
+import com.blankj.utilcode.util.FileUtils;
+
 /**
  * [description about this class]
  *
@@ -12,4 +14,8 @@ public class Constant {
 
     //sp缓存路径
     public static final String SPNAME = "wsx";
+
+    public static final String IMAGEPATH = SdcardUtils.getSdcardPath() + "wsx/image/avatar/";
+
+    public static final String IMAGNAME = IMAGEPATH + "camera_avatar.jpg";
 }
