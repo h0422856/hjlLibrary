@@ -29,6 +29,10 @@
         <activity
             android:name=".refresh.RefreshTwoActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".refresh.RefreshThreeActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".net.PostRequestActivity"
             android:screenOrientation="portrait" />
@@ -36,7 +40,7 @@
             android:name=".selectImg.AddStyleActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name="com.soundcloud.android.crop.CropImageActivity"/>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

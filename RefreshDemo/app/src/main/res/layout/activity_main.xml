@@ -32,5 +32,12 @@
         android:onClick="btn3Onlick"
         android:text="网络请求" />
 
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btn4Onlick"
+        android:text="上拉加载" />
+
 
 </LinearLayout>

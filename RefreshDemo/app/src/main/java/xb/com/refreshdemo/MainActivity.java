@@ -11,6 +11,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import xb.com.refreshdemo.net.PostRequestActivity;
 import xb.com.refreshdemo.refresh.RefreshOneActivity;
+import xb.com.refreshdemo.refresh.RefreshThreeActivity;
 import xb.com.refreshdemo.refresh.RefreshTwoActivity;
 
 public class MainActivity extends BaseActivity {
@@ -20,6 +21,8 @@ public class MainActivity extends BaseActivity {
     Button btn2;
     @BindView(R.id.btn3)
     Button btn3;
+    @BindView(R.id.btn4)
+    Button btn4;
 
     @Override
     protected void onCreate() {
@@ -51,5 +54,9 @@ public class MainActivity extends BaseActivity {
         ActivityUtils.startActivity(PostRequestActivity.class);
     }
 
+    @OnClick(R.id.btn4)
+    public void btn4Onlick(View view) {
+        ActivityUtils.startActivity(RefreshThreeActivity.class);
+    }
 
 }

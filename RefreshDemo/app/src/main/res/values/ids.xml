@@ -9,4 +9,5 @@
     <item name="patch_updateauth_id" type="id" />
     <item name="filed_uploadimgs_id" type="id" />
     <item name="post_add_personal_show_id" type="id" />
+    <item name="get_lawyer_list_id" type="id" />
 </resources>

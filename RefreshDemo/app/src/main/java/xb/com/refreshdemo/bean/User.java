@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.List;
 
+import xb.com.refreshdemo.Url;
+
 /**
  * Created by KevenTao on 2017/4/14.
  */
@@ -218,6 +220,18 @@ public class User extends CheckEarnestInfo implements Serializable {
             return lawyerTags;
         } else {
             return "未选取专业";
+        }
+    }
+
+    public String getAvatarThubmnail() {
+        if (!TextUtils.isEmpty(avatar)) {
+            if (avatar.startsWith("http")) {
+                return avatar;
+            } else {
+                return Url.FILE_UPLOAD_BASE_URL + avatar;
+            }
+        } else {
+            return avatar;
         }
     }
 

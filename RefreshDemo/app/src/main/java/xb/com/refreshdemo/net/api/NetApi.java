@@ -23,6 +23,7 @@ import xb.com.refreshdemo.bean.User;
 import xb.com.refreshdemo.bean.banner.BannerInfo;
 import xb.com.refreshdemo.bean.message.MessageBase;
 import xb.com.refreshdemo.bean.tag.ChampionBaseTag;
+import xb.com.refreshdemo.refresh.bean.LawyerInfo;
 import xb.com.refreshdemo.roundedimage.bean.FileData;
 
 /**
@@ -43,7 +44,6 @@ public interface NetApi {
     @POST("user/{uId}/updatePassWord")
     Observable<InfoResult<User>> updatePassWord(@Path("uId") Object userId, @FieldMap Map<String, Object> params);
 
-    @FormUrlEncoded
     @GET("classifyTag/tag/getList")
     Observable<InfoResult<List<ChampionBaseTag>>> getList(@FieldMap Map<String, Object> params);
 
@@ -66,4 +66,7 @@ public interface NetApi {
     @FormUrlEncoded
     @POST("user/addPersonalShow")
     Observable<InfoResult<String>> addPersonalShow(@FieldMap Map<String, Object> params);
+
+    @GET("user/lawyerList")
+    Observable<InfoResult<LawyerInfo>> lawyerList(@QueryMap Map<String, Object> params);
 }
