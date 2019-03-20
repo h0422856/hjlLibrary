@@ -30,6 +30,7 @@ import com.hjl.library.net.LogicHelper;
 import com.hjl.library.net.logic.Callback;
 import com.hjl.library.net.logic.EventLogic;
 import com.hjl.library.net.logic.LogicCallback;
+import com.hjl.library.utils.FastClickFilter;
 import com.hjl.library.utils.dialog.ProgressDialog;
 
 import org.greenrobot.eventbus.EventBus;
@@ -47,7 +48,7 @@ import butterknife.Unbinder;
  * @author hiphonezhu@gmail.com
  * @version [AndroidLibrary, 2018-3-6]
  */
-public abstract class FragmentPresenter extends Fragment implements LogicCallback {
+public abstract class FragmentPresenter extends Fragment implements LogicCallback, View.OnClickListener {
     protected EventBus eventBus;
     Callback callback;
     private ProgressDialog loadingDialog;
@@ -88,6 +89,12 @@ public abstract class FragmentPresenter extends Fragment implements LogicCallbac
         isDestroyed = false;
     }
 
+    @Override
+    public void onClick(View v) {
+        if (FastClickFilter.isFastClickAndNet(getActivity())) {
+            return;
+        }
+    }
 
     @Override
     public void onDestroy() {

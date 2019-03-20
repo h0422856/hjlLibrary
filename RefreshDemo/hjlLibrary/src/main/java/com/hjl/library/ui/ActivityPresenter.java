@@ -16,6 +16,7 @@ import com.hjl.library.net.LogicHelper;
 import com.hjl.library.net.logic.EventLogic;
 import com.hjl.library.net.logic.LogicCallback;
 import com.hjl.library.ui.base.Presenter;
+import com.hjl.library.utils.FastClickFilter;
 import com.hjl.library.utils.dialog.ProgressDialog;
 import com.hjl.library.utils.slideback.SlideBackAcitivty;
 import com.hjl.library.utils.toolbar.TitleBar;
@@ -157,6 +158,9 @@ public abstract class ActivityPresenter extends SlideBackAcitivty implements Log
 
     @Override
     public void onClick(View v) {
+        if (FastClickFilter.isFastClickAndNet(ActivityPresenter.this)) {
+            return;
+        }
         if (v.getId() == R.id.tb_left) {
             finishActivity();
         }
